@@ -33,3 +33,52 @@
  *
  */
 
+namespace amazingMarketing;
+
+use amazingMarketing\Discount\DiscountRuleMainProduct;
+use amazingMarketing\Discount\DiscountRuleTotalSumWithExcludedProducts;
+use amazingMarketing\Discount\DiscountRuleUnited;
+use function ord;
+
+include_once __DIR__ . '/autoloader.php';
+spl_autoload_register(function ($class) {
+    loadClassByPrefix($class, 'amazingMarketing\\', __DIR__ . '/');
+});
+
+$aProduct = new Product('A', 1000);
+$bProduct = new Product('B', 100);
+$cProduct = new Product('C', 10);
+$dProduct = new Product('D', 100);
+$eProduct = new Product('E', 100);
+$fProduct = new Product('F', 100);
+$gProduct = new Product('G', 100);
+$hProduct = new Product('H', 100);
+$iProduct = new Product('I', 100);
+$kProduct = new Product('K', 100);
+$lProduct = new Product('L', 100);
+$mProduct = new Product('M', 100);
+
+$discountManager = new DiscountManager();
+$discountManager->addRule(new DiscountRuleUnited(10, $aProduct, $bProduct));
+$discountManager->addRule(new DiscountRuleUnited(6, $dProduct, $eProduct));
+$discountManager->addRule(new DiscountRuleUnited(3, $eProduct, $fProduct, $gProduct));
+$discountManager->addRule(new DiscountRuleMainProduct(5, $aProduct, $kProduct, $lProduct, $mProduct));
+$discountManager->addRule(new DiscountRuleTotalSumWithExcludedProducts(5, 3, $aProduct, $cProduct));
+$discountManager->addRule(new DiscountRuleTotalSumWithExcludedProducts(10, 4, $aProduct, $cProduct));
+$discountManager->addRule(new DiscountRuleTotalSumWithExcludedProducts(20, 5, $aProduct, $cProduct));
+
+$order = new Order();
+$order->addToCart($aProduct);
+$order->addToCart($bProduct);
+$order->addToCart($dProduct);
+$order->addToCart($fProduct);
+$order->addToCart($lProduct);
+$order->addToCart($eProduct);
+$order->addToCart($gProduct);
+$order->addToCart($kProduct);
+$order->addToCart($cProduct);
+$order->addToCart($hProduct);
+$order->addToCart($mProduct);
+$order->addToCart($iProduct);
+
+
