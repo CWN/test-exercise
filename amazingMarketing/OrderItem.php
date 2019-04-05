@@ -6,14 +6,12 @@ class OrderItem
 {
     private $discountUniqueID;
     private $discountRate;
-    private $resultPrice;
     private $product;
 
     public function __construct(Product $product)
     {
-        $this->isDiscounted = false;
         $this->discountUniqueID = '';
-        $this->resultPrice = $product->getPrice();
+        $this->discountRate = 0;
         $this->product = $product;
     }
 
@@ -28,7 +26,7 @@ class OrderItem
         return $this->discountUniqueID;
     }
 
-    public function isDiscountApplied()
+    public function isDiscounted()
     {
         return isset($this->discountUniqueID) && !empty($this->discountUniqueID);
     }

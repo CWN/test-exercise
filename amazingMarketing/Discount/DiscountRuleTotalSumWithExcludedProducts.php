@@ -20,7 +20,7 @@ class DiscountRuleTotalSumWithExcludedProducts extends DiscountBaseRule
         }
     }
 
-    public function calculate(Order $order)
+    public function applyDiscountRule(Order $order)
     {
         // TODO: Implement calculate() method.
     }

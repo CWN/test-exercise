@@ -16,7 +16,7 @@ class DiscountRuleMainProduct extends DiscountBaseRule
         $this->products = $dependedProducts;
     }
 
-    public function calculate(Order $order)
+    public function applyDiscountRule(Order $order)
     {
         // TODO: Implement calculate() method.
     }

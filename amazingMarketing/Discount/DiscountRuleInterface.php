@@ -6,5 +6,5 @@ use amazingMarketing\Order;
 
 interface DiscountRuleInterface
 {
-    public function calculate(Order $order);
+    public function applyDiscountRule(Order $order);
 }

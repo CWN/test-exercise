@@ -16,5 +16,5 @@ abstract class DiscountBaseRule implements DiscountRuleInterface
         $this->uniqueDiscountID = get_class();
     }
 
-    abstract public function calculate(Order $order);
+    abstract public function applyDiscountRule(Order $order);
 }
