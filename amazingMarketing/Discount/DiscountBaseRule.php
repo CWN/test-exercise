@@ -13,7 +13,7 @@ abstract class DiscountBaseRule implements DiscountRuleInterface
     public function __construct($discount)
     {
         $this->discountRate = $discount;
-        $this->uniqueDiscountID = get_class();
+        $this->uniqueDiscountID = get_class($this);
     }
 
     abstract public function applyDiscountRule(Order $order);
