@@ -5,9 +5,6 @@ namespace amazingMarketing\Discount;
 use amazingMarketing\Order;
 use amazingMarketing\OrderItem;
 use amazingMarketing\Product;
-use function in_array;
-use function pg_fetch_row;
-use function reset;
 
 class DiscountRuleMainProduct extends DiscountBaseRule
 {
@@ -43,7 +40,7 @@ class DiscountRuleMainProduct extends DiscountBaseRule
 
         foreach ($items as $item) {
             $current_name = $item->getProduct()->getName();
-            if (in_array($current_name, $this->products) && !$item->isDiscounted()) {
+            if (\in_array($current_name, $this->products) && !$item->isDiscounted()) {
                 $item->setDiscountRate($this->discountRate, $this->uniqueDiscountID);
                 $item_exists = true;
             }

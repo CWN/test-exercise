@@ -79,6 +79,7 @@ $order->addToCart($gProduct);
 $order->addToCart($kProduct);
 $order->addToCart($cProduct);
 $order->addToCart($hProduct);
+$order->addToCart($hProduct);
 $order->addToCart($mProduct);
 $order->addToCart($iProduct);
 

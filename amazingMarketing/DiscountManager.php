@@ -3,7 +3,6 @@
 namespace amazingMarketing;
 
 use amazingMarketing\Discount\DiscountBaseRule;
-use function var_dump;
 
 class DiscountManager
 {
@@ -27,7 +26,5 @@ class DiscountManager
                 $applyResult = $rule->applyDiscountRule($order);
             };
         }
-
-        var_dump($order->getOrderItems());
     }
 }
