@@ -17,4 +17,9 @@ class DiscountManager
     {
         $this->discountRules[] = $rule;
     }
+
+    public function applyDiscounts(Order $order)
+    {
+
+    }
 }

@@ -4,20 +4,30 @@ namespace amazingMarketing;
 
 class Order
 {
-    private $productList = array();
+    private $orderItems = array();
+    private $originalCost;
 
     public function __construct()
     {
-        $this->productList = [];
+        $this->orderItems = [];
+        $this->originalCost = 0;
+        $this->totalSumDiscountRate = 0;
+        $this->totalCost = 0;
     }
 
     public function addToCart(Product $product)
     {
-        $this->productList = $product;
+        $this->orderItems[] = new OrderItem($product);
+        $this->originalCost += $product->getPrice();
     }
 
-    public function getProductList()
+    public function getCostWithoutDiscount()
     {
-        return $this->productList;
+        return $this->originalCost;
+    }
+
+    public function getOrderItems()
+    {
+        return $this->orderItems;
     }
 }

@@ -39,6 +39,7 @@ use amazingMarketing\Discount\DiscountRuleMainProduct;
 use amazingMarketing\Discount\DiscountRuleTotalSumWithExcludedProducts;
 use amazingMarketing\Discount\DiscountRuleUnited;
 use function ord;
+use function print_r;
 
 include_once __DIR__ . '/autoloader.php';
 spl_autoload_register(function ($class) {
@@ -81,4 +82,6 @@ $order->addToCart($hProduct);
 $order->addToCart($mProduct);
 $order->addToCart($iProduct);
 
+$calculator = new Calculator($order, $discountManager);
 
+echo $calculator->calculate() . "\n";
