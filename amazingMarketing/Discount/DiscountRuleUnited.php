@@ -18,13 +18,6 @@ class DiscountRuleUnited extends DiscountBaseRule
         }
     }
 
-    private function clearState()
-    {
-        foreach ($this->unitedProducts as $key => $value) {
-            $this->unitedProducts[$key] = -1;
-        }
-    }
-
     public function applyDiscountRule(Order $order)
     {
         $this->clearState();
@@ -54,5 +47,12 @@ class DiscountRuleUnited extends DiscountBaseRule
         }
 
         return $result;
+    }
+
+    private function clearState()
+    {
+        foreach ($this->unitedProducts as $key => $value) {
+            $this->unitedProducts[$key] = -1;
+        }
     }
 }
